@@ -4,4 +4,5 @@
 <body>
 
 </body>
+@extends('components.script')
 </html>
