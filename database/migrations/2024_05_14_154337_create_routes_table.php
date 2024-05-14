@@ -17,7 +17,7 @@ class CreateRoutesTable extends Migration
             $table->id();
             $table->string('group');
             $table->string('action');
-            $table->string('index');
+            $table->string('key')->unique();
         });
     }
 
