@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('layouts.login_default');
+Route::prefix('admin')->group(function(){
+    Route::get('',function(){
+        return view('layouts.default_login');
+    });
 });
+
+
