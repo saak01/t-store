@@ -3,7 +3,7 @@
 @include('components.head')
 <body>
     <main>
-        @yield('content')
+        @yield('login')
     </main>
 </body>
 @include('components.script')
