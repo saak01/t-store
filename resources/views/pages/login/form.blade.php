@@ -1,14 +1,14 @@
 <div class="position-absolute top-50 start-50 translate-middle">
     <div class="container">
-
-        <form action="" method="">
+        <form action="{{url('/admin/login')}}" method="POST">
             @csrf
+            @method('POST')
             <div class="d-flex justify-content-center">
-                <img height="160px" src="{{url('assets/images/logo.png')}}"  alt="" srcset="">
+                <img height="160px" src="{{url('assets/images/logo.png')}}" >
             </div>
             <div class="form-group mb-2">
                 <label for="" class="form-label">Email</label>
-                <input class="form-control" type="text" name="email" placeholder="">
+                <input class="form-control" type="text" name="email">
             </div>
             <div class="form-group mb-2">
                 <label for="" class="form-label">Senha</label>
