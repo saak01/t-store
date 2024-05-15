@@ -3,7 +3,7 @@
 @include('components.head')
 @include('components.header')
 <body>
-    <main>
+    <main class="d-flex container mt-4">
         <div class="as-4 flex-grow" id="content">
             @yield('content')
         </div>

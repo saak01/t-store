@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+    <h1>Lista de Camiseta</h1>
     <div class="page page-tshirt page-index" id="content">
         <div class="table-responsive">
             <table class="table-striped mt-3">
