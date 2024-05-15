@@ -4,7 +4,7 @@
 @include('components.header')
 <body>
     <main>
-        @include('pages.login.form')
+        <p>teste</p>
     </main>
 </body>
 @include('components.script')

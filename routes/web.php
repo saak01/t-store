@@ -1,14 +1,16 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function () {
-    //Formulário Login
-    Route::get('', function () {
-        return view('layouts.default_login');
+
+    Route::group([],function(){
+        //Formulário Login
+        Route::get('', ['uses' => 'LoginController@index']);
+        //Auth Passport
+        Route::post('/login',['uses' => 'LoginController@login', 'role' => '']);
     });
-    //Auth Passport
-    Route::post('/login',['uses' => 'UserController@login', 'role' => 'user.login']);
+
+
 });
 
