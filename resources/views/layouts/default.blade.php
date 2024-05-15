@@ -2,10 +2,12 @@
 <html lang="pt-br">
 @include('components.head')
 @include('components.header')
+
 <body>
     <main>
-        <p>teste</p>
+        @yield('content')
     </main>
 </body>
 @include('components.script')
+
 </html>

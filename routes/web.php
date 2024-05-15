@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('admin')->group(function () {
+Route::group(['prefix' => 'admin'],function () {
 
     Route::group([],function(){
         //Formulário Login
@@ -11,6 +11,11 @@ Route::prefix('admin')->group(function () {
         Route::post('/login',['uses' => 'LoginController@login', 'role' => '']);
     });
 
+
+    Route::group([],function(){
+        //Formulário Painel
+        Route::get('/home', ['uses' => 'HomeController@index']);
+    });
 
 });
 
