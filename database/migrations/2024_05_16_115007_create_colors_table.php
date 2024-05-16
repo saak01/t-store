@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTshirtModelsTable extends Migration
+class CreateColorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTshirtModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tshirt_models', function (Blueprint $table) {
+        Schema::create('colors', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateTshirtModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tshirt_models');
+        Schema::dropIfExists('colors');
     }
 }
