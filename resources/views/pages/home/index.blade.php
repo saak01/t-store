@@ -20,5 +20,5 @@
             </tbody>
         </table>
     </div>
-    <a class="btn btn-primary" href="{{ url('/admin/home/cadastrar') }}">Adicionar T-SHIRT</a>
+    <a class="btn btn-primary" href="{{ url('/admin/home/tshirts/cadastrar')}}">Adicionar T-SHIRT</a>
 @endsection

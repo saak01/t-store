@@ -14,9 +14,11 @@ Route::group(['prefix' => 'admin'],function () {
 
     Route::group(['prefix' => 'home'],function(){
         //Formulário Painel
-        Route::get('', ['uses' => 'HomeController@index']);
+        Route::get('/tshirts', ['uses' => 'HomeController@index']);
         //Formulário cadastro das blusas
-        Route::get('/cadastrar', ['uses' => 'TshirtController@create']);
+        Route::get('/tshirts/cadastrar', ['uses' => 'TshirtController@create']);
+        //Inserir no banco de dados
+        Route::post('/tshirts', ['uses' => 'TshirtController@create']);
     });
 
 });

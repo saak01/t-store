@@ -52,6 +52,4 @@ class Tshirt extends Model
         $this->belongsTo(Material::class);
     }
 
-
-
 }
