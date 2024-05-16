@@ -18,7 +18,7 @@ Route::group(['prefix' => 'admin'],function () {
         //Formulário cadastro das blusas
         Route::get('/tshirts/cadastrar', ['uses' => 'TshirtController@create']);
         //Inserir no banco de dados
-        Route::post('/tshirts', ['uses' => 'TshirtController@create']);
+        Route::post('/tshirts', ['uses' => 'TshirtController@insert']);
     });
 
 });

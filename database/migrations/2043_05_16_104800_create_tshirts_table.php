@@ -17,10 +17,10 @@ class CreateTshirtsTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedInteger('quantity');
-            $table->unsignedBigInteger('color_id');
-            $table->unsignedBigInteger('material_id');
-            $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('path_id');
+            $table->unsignedBigInteger('material_id');
+            $table->unsignedBigInteger('color_id');
+            $table->unsignedBigInteger('type_id');
             $table->foreign('color_id')->references('id')->on('colors');
             $table->foreign('material_id')->references('id')->on('materials');
             $table->foreign('type_id')->references('id')->on('types');
