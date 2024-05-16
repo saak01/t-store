@@ -15,7 +15,7 @@ class CreateTshirtsTable extends Migration
     {
         Schema::create('tshirts', function (Blueprint $table) {
             $table->id();
-            $table->strig('name');
+            $table->string('name');
             $table->unsignedInteger('quantity');
             $table->unsignedBigInteger('color_id');
             $table->unsignedBigInteger('material_id');

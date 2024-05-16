@@ -16,7 +16,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RouteSeeder::class,
             GroupSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            ColorSeeder::class,
+            MaterialSeeder::class,
+            TypeSeeder::class
         ]);
     }
 }
