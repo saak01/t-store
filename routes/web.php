@@ -12,9 +12,11 @@ Route::group(['prefix' => 'admin'],function () {
     });
 
 
-    Route::group([],function(){
+    Route::group(['prefix' => 'home'],function(){
         //Formulário Painel
-        Route::get('/home', ['uses' => 'HomeController@index']);
+        Route::get('', ['uses' => 'HomeController@index']);
+        //Formulário cadastro das blusas
+        Route::get('/cadastrar', ['uses' => 'TshirtController@create']);
     });
 
 });

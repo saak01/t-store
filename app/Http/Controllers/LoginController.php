@@ -59,7 +59,6 @@ class LoginController extends Controller
         if(!$validator->fails()){
             return $validator;
         }else{
-            dd($validator->errors());
             return back()->withErrors(['']);
         }
     }

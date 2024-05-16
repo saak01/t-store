@@ -15,11 +15,16 @@ class CreateTshirtsTable extends Migration
     {
         Schema::create('tshirts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+             $table->string('name');
             $table->unsignedInteger('quantity');
             $table->unsignedBigInteger('color_id');
             $table->unsignedBigInteger('material_id');
-            $table->unsignedBigInteger('img_id');
+            $table->unsignedBigInteger('type_id');
+            $table->unsignedBigInteger('path_id');
+            $table->foreign('color_id')->references('id')->on('colors');
+            $table->foreign('material_id')->references('id')->on('materias');
+            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('path_id')->references('id')->on('files');
             $table->timestamps();
         });
     }
