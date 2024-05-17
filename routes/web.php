@@ -21,7 +21,8 @@ Route::group(['prefix' => 'admin'],function () {
         Route::post('/tshirts', ['uses' => 'TshirtController@insert']);
         //Editar Tshirt
         Route::get('/tshirts/{id}/editar', ['uses' => 'TshirtController@edit']);
-
+        //Deletar Tshirt
+        Route::delete('/tshirts', ['uses' => 'TshirtController@delete']);
     });
 
 });

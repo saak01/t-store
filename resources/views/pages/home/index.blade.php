@@ -1,5 +1,4 @@
 @extends('layouts.default')
-
 @section('content')
     <h1>Lista de Camiseta</h1>
     <div class="page page-tshirt page-index" id="content">
@@ -25,8 +24,8 @@
                         <td>{{ $tshirt->color_name }}</td>
                         <td>{{ $tshirt->type_name }}</td>
                         <td>
-                            <a class="btn btn-secondary" href="{{url('/admin/home/tshirts/'.$tshirt->id.'/editar')}}">Editar</a>
-                            <a class="btn btn-primary btn-danger" href="">Remover</a>
+                            <a class="btn btn-secondary btn-sm" href="{{ url('/admin/home/tshirts/' . $tshirt->id . '/editar') }}">Editar</a>
+                            @include('components.delete', ['url' => 'admin/home/tshirts','id' => $tshirt->id,'text' => 'Remover'])
                         </td>
                     </tr>
                 @endforeach

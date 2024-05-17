@@ -31,10 +31,9 @@ class Tshirt extends Model
             't.*',
             'ty.name as type_name',
             'c.name as color_name',
-            'mt.name as material_name'
+            'mt.name as material_name',
         );
     }
-
     /**
      * Relação "belongsTo" entre tabelas Tshirt e Color
      *
@@ -43,7 +42,6 @@ class Tshirt extends Model
     public function color(){
         $this->belongsTo(Color::class);
     }
-
     /**
      * Relação "belongsTo" entre tabelas Tshirt e Material
      *
@@ -52,14 +50,21 @@ class Tshirt extends Model
     public function material(){
         $this->belongsTo(Material::class);
     }
-
     /**
      * Relação "belongsTo" entre tabelas Tshirt e Type
      *
      * @return void
      */
+
     public function type(){
         $this->belongsTo(Material::class);
     }
-
+    /**
+     * Relação "belongsTo" entre tabelas Tshirt e File
+     *
+     * @return void
+     */
+    function file(){
+        $this->belongsTo(File::class);
+    }
 }

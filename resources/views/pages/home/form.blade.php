@@ -1,6 +1,5 @@
 @extends('layouts.default')
 @section('content')
-
     <h1>Formulário de T-SHIRTS</h1>
     <form class="container" action="{{ url('/admin/home/tshirts') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -19,7 +18,7 @@
             <div class="col-5  d-flex align-items-end">
                 <div class="form-group">
                     <label class="form-label">Imagem da T-shirts</label>
-                    <input class="form-control" type="file" id="formFile" name="file">
+                    <input class="form-control" type="file" id="formFile" name="file" value="">
                 </div>
             </div>
 
