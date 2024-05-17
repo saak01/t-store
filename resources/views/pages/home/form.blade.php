@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+
     <h1>Formulário de T-SHIRTS</h1>
     <form class="container" action="{{ url('/admin/home/tshirts') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -11,7 +12,7 @@
             <div class="col-5">
                 <div class="form-group">
                     <label class="form-label">Nome</label>
-                    <input class="form-control" type="text" name="name">
+                    <input class="form-control" type="text" name="name" value="{{$tshirt->name}}">
                 </div>
             </div>
 
@@ -25,7 +26,7 @@
             <div class="col-2">
                 <div class="form-group">
                     <label class="form-label">Quantidade</label>
-                    <input class="form-control" type="number" name="quantity" min="0">
+                    <input class="form-control" type="number" name="quantity" min="0" value="{{$tshirt->quantity}}">
                 </div>
             </div>
 

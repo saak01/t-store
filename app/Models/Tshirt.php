@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,8 +22,17 @@ class Tshirt extends Model
      *
      * @return void
      */
-    public function scopeSearch(){
-        //Todo
+    public function scopeSearch($query){
+        $query->from('tshirts as t');
+        $query->join('types as ty', 'ty.id', 't.type_id');
+        $query->join('colors as c', 'c.id', 't.color_id');
+        $query->join('materials as mt', 'mt.id', 't.material_id');
+        $query->select(
+            't.*',
+            'ty.name as type_name',
+            'c.name as color_name',
+            'mt.name as material_name'
+        );
     }
 
     /**

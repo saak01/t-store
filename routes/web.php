@@ -19,6 +19,9 @@ Route::group(['prefix' => 'admin'],function () {
         Route::get('/tshirts/cadastrar', ['uses' => 'TshirtController@create']);
         //Inserir no banco de dados
         Route::post('/tshirts', ['uses' => 'TshirtController@insert']);
+        //Editar Tshirt
+        Route::get('/tshirts/{id}/editar', ['uses' => 'TshirtController@edit']);
+
     });
 
 });

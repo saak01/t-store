@@ -29,6 +29,11 @@ class TshirtController extends Controller
         return $this->form($tshirt);
     }
 
+    function edit(int $id){
+        $tshirt = Tshirt::find($id);
+        return $this->form($tshirt);
+    }
+
     /**
      * Formulário adicionar t-shirt
      * @param Tshirt $tshirt
@@ -43,7 +48,7 @@ class TshirtController extends Controller
         $types = Type::all();
 
         $data = [
-            "tshirts" => $tshirt,
+            "tshirt" => $tshirt,
             "colors" => $colors,
             "materials" => $material,
             "types" => $types,
