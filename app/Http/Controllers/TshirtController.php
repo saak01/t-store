@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Color;
+use App\Models\File;
 use App\Models\Material;
 use App\Models\Tshirt;
 use App\Models\Type;
@@ -80,7 +81,21 @@ class TshirtController extends Controller
         }
     }
 
-    private function save($tshirt, $request){
+    /**
+     * Salva arquivo no storage e salva no banco
+     *
+     * @param [type] $tshirt
+     * @param [type] $request
+     * @return void
+     */
+
+  /**
+      * Salva a imagem no storage e banco de dados;
+      *
+      * @param Request $request
+      * @return string
+      */
+     function saveFile(Request $request){
         $f = $request->file;
 
         $hash = md5_file($f->path());
@@ -90,6 +105,50 @@ class TshirtController extends Controller
         $filename = $hash.'.'.$extension;
 
         $dir = 'files/'.date('Y/m/d');
+
+        $storepath = $dir.'/'.$filename;
+
+        Storage::putFileAs($dir,$f,$filename);
+
+        $file = new File();
+
+        $file->path = $storepath;
+
+        $file->mime = $f->getMimeType();
+
+        $file->extension = $extension;
+
+        $file->size = $f->getsize();
+
+        $file->created_at = now();
+
+        $file->save();
+
+        return $storepath;
+     }
+
+      /**
+       * Salva Tshirt no banco de dados
+       * Undocumented function
+       *
+       * @param Tshirt $tshirt
+       * @param Request $request
+       * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+       */
+     private function save(Tshirt $tshirt, Request $request){
+        //Salva a imagem passada no form, seu retorno é storepath.
+        $storepath = $this->saveFile($request);
+        //Salva dados da tshirt na banco
+        $tshirt->name = $request->name;
+        $tshirt->quantity = $request->quantity;
+        $tshirt->path = $storepath;
+        $tshirt->material_id = $request->material_id;
+        $tshirt->color_id = $request->color_id;
+        $tshirt->type_id = $request->type_id;
+        $tshirt->save();
+        //Retorna para pagina de listagem com sucesso passado na sessão.
+        $request->session('success', 'Tshirt foi salva');
+        return redirect('/home/tshirts');
     }
 
     /**

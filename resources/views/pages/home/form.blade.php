@@ -59,7 +59,7 @@
             <div class="col-4">
                 <div class="form-group">
                     <label class="form-label">Tipos</label>
-                    <select class="form-select" name="material_id">
+                    <select class="form-select" name="type_id">
                         <option>Selecione a opção</option>
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
