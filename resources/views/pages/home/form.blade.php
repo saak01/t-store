@@ -1,5 +1,9 @@
 @extends('layouts.default')
 @section('content')
+
+@php
+                        dd($tshirt);
+                        @endphp
     <h1>Formulário de T-SHIRTS</h1>
     <form class="container" action="{{ url('/admin/home/tshirts') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -36,7 +40,7 @@
                 <div class="form-group">
                     <label class="form-label">Cor</label>
                     <select class="form-select" name="color_id">
-                        <option>Selecione a opção</option>
+                        <option value="1">{{$tshirt->color_id}}</option>
                         @foreach ($colors as $color)
                             <option value="{{ $color->id }}">{{ $color->name }}</option>
                         @endforeach

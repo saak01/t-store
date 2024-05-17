@@ -35,9 +35,7 @@ class TshirtController extends Controller
     {
         $tshirt = Tshirt::find($id);
 
-        $data = ['tshirt' => $tshirt];
-
-        return view('pages.home.form',$data);
+        return $this->form($tshirt);
     }
 
     /**
