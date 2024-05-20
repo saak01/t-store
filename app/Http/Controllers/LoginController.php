@@ -37,7 +37,7 @@ class LoginController extends Controller
             if(Auth::attempt($credentials)){
                 $user = Auth::user();
                 $request->session()->put('user', $user);
-                return redirect()->intended('/admin/home/tshirts');
+                return redirect()->intended('/admin/tshirts');
             }else{
                 return back()->withErrors(['erro' => 'Credenciais incorretas']);
             }

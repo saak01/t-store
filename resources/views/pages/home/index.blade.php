@@ -24,13 +24,13 @@
                         <td>{{ $tshirt->color_name }}</td>
                         <td>{{ $tshirt->type_name }}</td>
                         <td>
-                            <a class="btn btn-secondary btn-sm" href="{{ url('/admin/home/tshirts/' . $tshirt->id . '/editar') }}">Editar</a>
-                            @include('components.delete', ['url' => 'admin/home/tshirts','id' => $tshirt->id,'text' => 'Remover'])
+                            <a class="btn btn-secondary btn-sm" href="{{ url('/admin/tshirts/' . $tshirt->id . '/editar') }}">Editar</a>
+                            @include('components.delete', ['url' => 'admin/tshirts','id' => $tshirt->id,'text' => 'Remover'])
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    <a class="btn btn-primary" href="{{ url('/admin/home/tshirts/cadastrar') }}">Adicionar T-SHIRT</a>
+    <a class="btn btn-primary" href="{{ url('/admin/tshirts/cadastrar') }}">Adicionar T-SHIRT</a>
 @endsection

@@ -1,4 +1,4 @@
-<form class=" d-inline mt-1" action="{{url('admin/home/tshirts')}}" method="POST">
+<form class=" d-inline mt-1" action="{{url('admin/tshirts')}}" method="POST">
     @csrf
     @method('DELETE')
     <input type="hidden" name="id" value="{{$id}}">

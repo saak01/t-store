@@ -21,6 +21,25 @@ use Illuminate\Support\Facades\Validator;
  */
 class TshirtController extends Controller
 {
+
+    /**
+     * Listas Tshirts
+     *
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    function index()
+    {
+
+        $query = Tshirt::search();
+
+        $list = $query->paginate(10);
+
+
+        $data = ["tshirts" => $list];
+
+        return view('pages.home.index', $data);
+    }
+
     /**
      * Redirecionamento para formulário
      * @return void
@@ -33,7 +52,7 @@ class TshirtController extends Controller
 
     function edit(int $id)
     {
-        $tshirt = Tshirt::find($id);
+        $tshirt = Tshirt::searchbyid($id)->firstOrFail();
 
         return $this->form($tshirt);
     }
@@ -59,6 +78,7 @@ class TshirtController extends Controller
             "types" => $types,
         ];
 
+
         return view('pages.home.form', $data);
     }
 
@@ -71,7 +91,7 @@ class TshirtController extends Controller
     function insert(Request $request)
     {
         $this->store($request);
-        return redirect('admin/home/tshirts');
+        return redirect('admin/tshirts');
     }
     /**
      * Store
@@ -81,6 +101,7 @@ class TshirtController extends Controller
      */
     function store(Request $request)
     {
+
         $validator = $this->validation($request);
         if ($validator->fails()) {
             $error = $validator->errors();
@@ -154,7 +175,7 @@ class TshirtController extends Controller
             $tshirt->delete($tshirt->image_id);
         }
 
-        return redirect('admin/home/tshirts');
+        return redirect('admin/tshirts');
     }
 
     /**

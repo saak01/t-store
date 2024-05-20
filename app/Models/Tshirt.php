@@ -18,7 +18,7 @@ class Tshirt extends Model
     use HasFactory;
 
     /**
-     * Relação
+     * Função de escopo para listar todos as shirt
      *
      * @return void
      */
@@ -27,13 +27,39 @@ class Tshirt extends Model
         $query->join('types as ty', 'ty.id', 't.type_id');
         $query->join('colors as c', 'c.id', 't.color_id');
         $query->join('materials as mt', 'mt.id', 't.material_id');
+        $query->join('files as fi', 'fi.id', 't.image_id');
         $query->select(
             't.*',
             'ty.name as type_name',
             'c.name as color_name',
             'mt.name as material_name',
+            'fi.path as image_path'
         );
     }
+
+        /**
+     * Função de escopo
+     *
+     * @return void
+     */
+    public function scopeSearchById($query, int $id){
+        $query->from('tshirts as t');
+        $query->join('types as ty', 'ty.id', 't.type_id');
+        $query->join('colors as c', 'c.id', 't.color_id');
+        $query->join('materials as mt', 'mt.id', 't.material_id');
+        $query->join('files as fi', 'fi.id', 't.image_id');
+        $query->select(
+            't.*',
+            'ty.name as type_name',
+            'c.name as color_name',
+            'mt.name as material_name',
+            'fi.path as image_path'
+        );
+        $query->where('t.id',$id);
+    }
+
+
+
     /**
      * Relação "belongsTo" entre tabelas Tshirt e Color
      *
