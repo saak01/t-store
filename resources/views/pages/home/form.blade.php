@@ -7,10 +7,12 @@
         @method($tshirt->id ? 'PUT' : 'POST')
 
         <div class="row">
+            @if ($tshirt->id)
             <div class="col">
                 <img class="me-4" height="250px" width="250px" src="{{ asset('storage/app/files/2024/05/20/2557d5ade5ee28a070c75d88b5bdeef4.jpg') }}" alt="" srcset="">
                 <p>{{$tshirt->image_path}}</p>
             </div>
+            @endif
         </div>
 
         <div class="row">
