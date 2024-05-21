@@ -1,8 +1,5 @@
 <div class="page page-form page-login">
     @include('components.alert')
-    @php
-        dd(old('email'));
-    @endphp
     <div class="position-absolute top-50 start-50 translate-middle">
         <div class="container">
             <form action="{{ url('/admin/login') }}" method="POST">
