@@ -11,8 +11,15 @@
     },
     "devDependencies": {
         "axios": "^0.21",
+        "del": "^7.1.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^5.1.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "gulp": "^5.0.0"
     }
 }

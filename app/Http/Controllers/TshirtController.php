@@ -50,6 +50,17 @@ class TshirtController extends Controller
         return $this->form($tshirt);
     }
 
+        /**
+     * Redirecionamento para formulário update
+     * @return void
+     */
+    function update()
+    {
+        $tshirt = new Tshirt();
+        return $this->form($tshirt);
+    }
+
+
     function edit(int $id)
     {
         $tshirt = Tshirt::searchbyid($id)->firstOrFail();
