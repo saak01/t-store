@@ -64,7 +64,6 @@ class TshirtController extends Controller
     function edit(int $id)
     {
         $tshirt = Tshirt::searchbyid($id)->firstOrFail();
-
         return $this->form($tshirt);
     }
 

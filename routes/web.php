@@ -26,7 +26,9 @@ Route::group(['prefix' => 'admin'],function () {
         Route::put('/tshirts', ['uses' => 'TshirtController@update', 'role' => 'shop.index']);
         //Deletar Tshirt
         Route::delete('/tshirts', ['uses' => 'TshirtController@delete', 'role' => 'shop.delete']);
-        });
+        //Rota para pegar imagem
+        Route::get('/tshirts/{id}',['uses' => 'FileController@getImage', 'role' => 'shop.index']);
+    });
     });
 
 });

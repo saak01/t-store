@@ -10,7 +10,7 @@
         <div class="row">
             @if ($tshirt->id)
                 <div class="col">
-                    <img src="{{url(Storage::url($tshirt->image_path) )}}" alt="{{ $tshirt->name }}">
+                    <img src="{{url('/admin/tshirts/'.$tshirt->image_id)}}" alt="{{ $tshirt->name }}">
                         <p>{{ $tshirt->image_path }}</p>
                 </div>
             @endif
