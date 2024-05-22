@@ -11,6 +11,7 @@
                     <th scope="col">Material</th>
                     <th scope="col">Cor</th>
                     <th scope="col">Tipos</th>
+                    <th scope="col">Images</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
@@ -24,8 +25,16 @@
                         <td>{{ $tshirt->color_name }}</td>
                         <td>{{ $tshirt->type_name }}</td>
                         <td>
-                            <a class="btn btn-secondary btn-sm" href="{{ url('/admin/tshirts/' . $tshirt->id . '/editar') }}">Editar</a>
-                            @include('components.delete', ['url' => 'admin/tshirts','id' => $tshirt->id,'text' => 'Remover'])
+                            <img height="50" width="50" src="{{ url('/admin/tshirts/' . $tshirt->image_id) }}" alt="{{$tshirt->name}}">
+                        </td>
+                        <td>
+                            <a class="btn btn-secondary btn-sm"
+                                href="{{ url('/admin/tshirts/' . $tshirt->id . '/editar') }}">Editar</a>
+                            @include('components.delete', [
+                                'url' => 'admin/tshirts',
+                                'id' => $tshirt->id,
+                                'text' => 'Remover',
+                            ])
                         </td>
                     </tr>
                 @endforeach
