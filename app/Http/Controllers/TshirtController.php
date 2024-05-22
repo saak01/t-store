@@ -183,6 +183,7 @@ class TshirtController extends Controller
         if ($tshirt) {
             Storage::delete($file->path);
             $tshirt->delete($tshirt->image_id);
+            $file->delete($file->id);
         }
 
         return redirect('admin/tshirts');
