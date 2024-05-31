@@ -4,4 +4,5 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{env('APP_NAME')}}</title>
     <link rel="stylesheet" href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
